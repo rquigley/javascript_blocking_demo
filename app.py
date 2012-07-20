@@ -23,7 +23,6 @@ def js_file(sec):
     sleep(sec)
 
   resp = make_response(render_template('script.js'))
-  #resp.headers['mimetype'] = 'application/x-javascript'
   resp.mimetype = 'application/javascript'
   return resp
 
