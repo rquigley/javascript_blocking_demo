@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>Blocking Demo</title>
+
+<link rel="stylesheet" href="/static/site.css">
+
+</head>
+<body>
+
+<h1>{% block header %}{% endblock %}</h1>
+
+<div class="content">
+  {% block content %}{% endblock %}
+</div>
+
+
+<div class="alldone">
+  
+</div>
+
+<script type="text/javascript" src="/static/js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="/static/js/utility.js"></script>
+{% block js_scripts %}
+
+{% endblock %}
+
+{% block js_inline %}
+
+{% endblock %}
+
+</body>
+</html>

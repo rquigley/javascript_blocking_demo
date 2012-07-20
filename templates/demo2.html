@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  Single script blocking, but with async attribute
+{% endblock %}
+
+{% block content %}
+  The "async" attribute for external scripts will avoid blocking. Dirt simple to implemement, except..... effffffffffff IE.<br><br>
+
+  <a href="http://caniuse.com/#search=async">Browser Support</a>
+{% endblock %}
+
+{% block js_scripts %}
+<script type="text/javascript">
+  $(function() {
+    $('.alldone').text('All Done (in '+stopTimer()+')!');
+
+    setTimeout(function() {
+      $('<img src="http://4.bp.blogspot.com/_MBU9BpWKBCY/S7sMBE_6_VI/AAAAAAAAAAM/6aBvPTxkO4k/s1600/ffffuuuu.jpg">').insertAfter($('.alldone'));
+    }, 1000);
+  });
+</script>
+
+<script type="text/javascript" async src="/js-file/2"></script>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  Single script blocking
+{% endblock %}
+
+{% block content %}
+  DOMContentLoaded doesn't fire until all scripts loaded
+{% endblock %}
+
+{% block js_scripts %}
+<script type="text/javascript">
+  $(function() {
+    $('.alldone').text('All Done (in '+stopTimer()+')!');
+  });
+</script>
+
+<script type="text/javascript" src="/js-file/2"></script>
+
+{% endblock %}

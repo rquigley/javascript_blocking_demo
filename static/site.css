@@ -1,0 +1,18 @@
+body {
+  font-family: Helvetica Neue, Arial, sans-serif;
+  font-size: 0.865em;
+  line-height: 1.3;
+}
+h1 {
+  font-size: 1.2em;
+  line-height: 1.3;
+}
+
+.alldone {
+  margin: 40px 0;
+  color: #900;
+}
+
+a {
+  color: #3D7EC5;
+}

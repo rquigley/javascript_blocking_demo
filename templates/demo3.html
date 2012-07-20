@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  Single script blocking, but with async attachment.
+{% endblock %}
+
+{% block content %}
+  Alternatively, we can attach the script to the page to be loaded after the DOMContentLoaded event fires. This is compatible with every browser we care about.
+{% endblock %}
+
+{% block js_scripts %}
+<script type="text/javascript">
+  function asyncLoad(src, callback) {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+
+    if (callback) {
+      if (script.readyState) {
+        script.onreadystatechange = function() {
+          if (script.readyState == "loaded" || script.readyState == "complete") {
+            script.onreadystatechange = null;
+            callback();
+          }
+        };
+      } else {
+        script.onload = function() {
+          callback();
+        };
+      }
+    }
+
+    script.src = src;
+
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(script, s);
+  }
+
+  asyncLoad("/js-file/2");
+
+  $(function() {
+    $('.alldone').text('All Done (in '+stopTimer()+')!');
+  });
+</script>
+
+{% endblock %}
